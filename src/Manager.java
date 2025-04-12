@@ -1,18 +1,18 @@
 import java.util.LinkedList;
-import java.util.Queue;
+
 import java.util.Scanner;
 
 public class Manager {
-    private static Queue<String> equation = new LinkedList<>();
+    private static LinkedList<String> equation = new LinkedList<>();
 
     public static void inputNotation() {
         Scanner input = new Scanner(System.in);
-        System.out.print("Input an equation in Polish notation: (+ 3 * 2 2");
+        System.out.print("Input an equation in Polish notation: (+ 3 * 2 2)");
         String line = input.next();
         addTo(line);
     }
 
-    public static Queue<String> addTo(String line) {
+    public static LinkedList<String> addTo(String line) {
         int i = 0;
 
         if (i == line.length() - 1) {
@@ -24,15 +24,17 @@ public class Manager {
         }
         return equation;
     }
-    public static void eval(Queue<String> equation) {
-        int add = 0;
-        int minus = 0;
+    public static int eval(LinkedList<String> equation) {
+
         switch(equation.peek()) {
-            case "+": add += Integer.parseInt(equation.poll();
-            case "-": minus += equation.poll(nextInt());
+            case "+":
+            case "-":
+            case "*":
+            case "/":
+            default: return Integer.parseInt(equation);
         }
     }
-    public Queue<String> getQueue(){
+    public LinkedList<String> getQueue(){
         return equation;
     }
 }
